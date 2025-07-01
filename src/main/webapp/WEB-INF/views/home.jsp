@@ -185,10 +185,22 @@
                 <div id="ap-l-i-author"></div>
             </div>
         </div>
+
+
+
+
         <div class="ap-center" id="ap-section">
+
+
             <audio id="audio" controls></audio>
+
+
         </div>
-        <div class="ap-right" id="ap-section">
+
+
+
+        
+        <div class="ap-right" id="ap-section"> <!-- Unterschtützungsknopf -->
 
         </div>
     </div>
