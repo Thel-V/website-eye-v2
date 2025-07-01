@@ -69,7 +69,7 @@
             <div class="category-title">
                 <h1>🔥Heiße Lieder</h1>
             </div>
-            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn prev"><span>➤</span></button>
                 <div class="carousel-wrapper" id="cw-h">
                     <div class="songs-list">
                         <c:forEach var="song" items="${popularSongs}">
@@ -88,14 +88,14 @@
                         </c:forEach>
                     </div>
                 </div>
-            <button class="carousel-btn next">&#10095;</button>
+            <button class="carousel-btn next"><span>➤</span></button>
         </div>
         <div class="category-fields"> <!-- Random -->
             <div class="category-fields-background"></div>
             <div class="category-title">
                 <h1>🔁Zufällige Lieder</h1>
             </div>
-            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn prev"><span>➤</span></button>
                 <div class="carousel-wrapper" id="cw-r">
                     <div class="songs-list">
                         <c:forEach var="song" items="${randomSongs}">
@@ -114,14 +114,14 @@
                         </c:forEach>
                     </div>
                 </div>
-            <button class="carousel-btn next">&#10095;</button>
+            <button class="carousel-btn next"><span>➤</span></button>
         </div>
         <div class="category-fields"> <!-- New -->
             <div class="category-fields-background"></div>
             <div class="category-title">
                 <h1>💫Neue Lieder</h1>
             </div>
-            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn prev"><span>➤</span></button>
                 <div class="carousel-wrapper" id="cw-n">
                     <div class="songs-list">
                         <c:forEach var="song" items="${newSongs}">
@@ -140,7 +140,7 @@
                         </c:forEach>
                     </div>
                 </div>
-            <button class="carousel-btn next">&#10095;</button>
+            <button class="carousel-btn next"><span>➤</span></button>
         </div>
         <!-- Footer -->
         <div class="info-box" >
@@ -180,33 +180,47 @@
             <div class="ap-l-image">
                 <img src="" id="ap-l-image">
             </div>
-            <div class="ap-l-info-field"> <!-- make these <a>'s (clickable) -->
-                <div id="ap-l-i-title"></div>
-                <div id="ap-l-i-author"></div>
+            <div class="ap-l-info-field">
+                <div class="ap-l-i-title-field">
+                    <span class="ap-title-text" id="ap-l-i-title"></span>
+                </div>
+                <div class="ap-l-i-author-field">
+                    <span class="ap-author-text" id="ap-l-i-author"></span>
+                </div>
             </div>
         </div>
 
 
+        <div class="ap-center">
+            <div class="ap-progress">
+            <div class="ap-progress-bar">
+                <div class="ap-progress-fill"></div>
+            </div>
+            <div id="progress-tooltip" style="position:absolute; display:none; background:#000; color:#fff; padding:4px 8px; border-radius:5px; font-size:0.8rem; pointer-events:none; transform: translateX(-50%); white-space: nowrap; z-index:1000;"></div>
+            </div>
 
+            <div class="ap-controls">
+                <div class="btn-tooltip" data-tooltip="-5">
+                    <button id="skipb-btn">↻</button>
+                </div>
+                <button id="play-btn">▶</button>
+                <div class="btn-tooltip" data-tooltip="+5">
+                    <button id="skipf-btn">↺</button>
+                </div>
+            </div>
 
-        <div class="ap-center" id="ap-section">
-
-
-            <audio id="audio" controls></audio>
-
-
+            <audio id="audio" src=""></audio>
         </div>
-
-
 
         
-        <div class="ap-right" id="ap-section"> <!-- Unterschtützungsknopf -->
-
+        <div class="ap-right" id="ap-section">
+            <div class="volume-control">
+                <i class="fa-solid fa-volume-high" id="volume-icon"></i></i>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+            </div>
         </div>
+
     </div>
-
-
-
 </body>
 
 </html>

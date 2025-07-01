@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     /* outline: 1px solid #2e2; */
+    user-select: none;
 }
 
 html {
@@ -345,7 +346,7 @@ nav a:active {
 }
 
 .footer-bump{
-    height: 80px;
+    height: 90px;
 }
 
 
@@ -355,7 +356,7 @@ nav a:active {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 90px;
     background-color: #202020;
     border-top: 2px solid #d4d4d4;
     color: #fff;
@@ -377,7 +378,7 @@ nav a:active {
 }
 
 .ap-left{
-    width: 400px;
+    width: 350px;
     height: 70px;
     display: flex;
     align-items: center;
@@ -411,23 +412,233 @@ nav a:active {
     margin: 0;
 }
 
+.ap-l-i-title-field:hover::after,
+.ap-l-i-author-field:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    box-shadow: 0 0 10px #000;
+    pointer-events: none;
+}
+
+.ap-l-i-title-field::after,
+.ap-l-i-author-field::after {
+    opacity: 0;
+}
+
+.ap-l-info-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.ap-l-i-title-field,
+.ap-l-i-author-field {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* <-- Keeps tooltip and text stacked */
+}
+
+.ap-title-text,
+.ap-author-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 300px;
+    cursor: default;
+}
+
 #ap-l-i-title{
     font-weight: bold;
     font-size: 1.4rem;
+    cursor: default;
 }
 
 #ap-l-i-author{
     font-size: 1rem;
     color: #bbb;
+    cursor: default;
 }
 
 .ap-center{
     width: 800px;
-    display: flex;
+    display: flex;  
+    flex-direction: column;
     align-items: center;
-    align-content: center;
+    justify-content: center;
 }
 
+/* Hide native audio */
+#audio {
+    display: none;
+}
+
+/* Controls */
+.ap-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.ap-controls button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#play-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+}
+
+.ap-controls button:hover{
+    color: #c3c3c3;
+    background-color: #2f2f2f;
+    border: #000 2px solid;
+}
+
+.ap-controls button:active{
+    background-color: #d4d4d4;
+    color: #131313;
+}
+
+/* Progress Bar */
+.ap-progress {
+    position: relative; /* so tooltip absolute inside */
+    width: 100%;    /* full width for progress bar */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#progress-tooltip {
+  position: absolute;
+  bottom: 30px; /* above progress bar */
+  display: none;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+
+.ap-progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #555;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ap-progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #1db954;
+    border-radius: 4px;
+    transition: width 0.2s;
+}
+
+/* Tooltip container for buttons */
+.btn-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text styling, initially hidden */
+.btn-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;  /* Above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 10px #000;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 100;
+}
+
+/* Show tooltip on hover */
+.btn-tooltip:hover::after {
+    opacity: 1;
+}
+
+
+
+
+
 .ap-right{
-    width: 400px;
+    width: 350px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.volume-control i {
+    font-size: 20px;
+    width: 40px;
+}
+
+#volume-slider {
+    width: 300px;
+    -webkit-appearance: none;
+    background: #444;
+    height: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #1db954;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
 }
