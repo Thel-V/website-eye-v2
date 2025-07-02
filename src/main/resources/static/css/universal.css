@@ -614,6 +614,7 @@ nav a:active {
 .volume-control i {
     font-size: 20px;
     width: 40px;
+    cursor: pointer;
 }
 
 #volume-slider {
@@ -641,4 +642,8 @@ nav a:active {
     border: none;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
 }

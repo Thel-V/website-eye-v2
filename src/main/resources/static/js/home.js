@@ -79,49 +79,87 @@ const skipBack = document.getElementById("skipb-btn");
 const progressBar = document.querySelector(".ap-progress-bar");
 const progressFill = document.querySelector(".ap-progress-fill");
 const volumeSlider = document.getElementById('volume-slider');
-
-// New: tooltip div for progress hover
 const progressTooltip = document.getElementById("progress-tooltip");
 
-playBtn.addEventListener("click", () => {
+const volumeIcon = document.getElementById('volume-icon');
+let previousVolume = audio.volume || 0.5;
+
+// Mute / Unmute toggle
+volumeIcon.addEventListener('click', () => {
+    if (audio.volume > 0) {
+        previousVolume = audio.volume;
+        audio.volume = 0;
+        volumeSlider.value = 0;
+    } else {
+        audio.volume = previousVolume || 0.5;
+        volumeSlider.value = previousVolume || 0.5;
+    }
+    updateVolumeIcon(audio.volume);
+});
+
+// Slider control
+volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value;
+    if (audio.volume > 0) {
+        previousVolume = audio.volume;
+    }
+    updateVolumeIcon(audio.volume);
+});
+
+
+function updateVolumeIcon(volume) {
+    if (volume == 0) {
+        volumeIcon.className = "fa-solid fa-volume-xmark";
+    } else if (volume > 0 && volume <= 0.3) {
+        volumeIcon.className = "fa-solid fa-volume-off";
+    } else if (volume > 0.3 && volume <= 0.7) {
+        volumeIcon.className = "fa-solid fa-volume-low";
+    } else {
+        volumeIcon.className = "fa-solid fa-volume-high";
+    }
+}
+
+
+
+  playBtn.addEventListener("click", () => {
   if (audio.paused) {
       audio.play();
   } else {
       audio.pause();
   }
-});
+  });
 
-skipFront.addEventListener("click", () => {
+  skipFront.addEventListener("click", () => {
   audio.currentTime = Math.min(audio.currentTime + 5, audio.duration);
-});
+  });
 
-skipBack.addEventListener("click", () => {
+  skipBack.addEventListener("click", () => {
   audio.currentTime = Math.max(audio.currentTime - 5, 0);
-});
+  });
 
-audio.addEventListener("play", () => {
+  audio.addEventListener("play", () => {
   playBtn.textContent = "❚❚";
-});
+  });
 
-audio.addEventListener("pause", () => {
+  audio.addEventListener("pause", () => {
   playBtn.textContent = "▶";
-});
+  });
 
-audio.addEventListener("timeupdate", () => {
+  audio.addEventListener("timeupdate", () => {
   const progressPercent = (audio.currentTime / audio.duration) * 100;
   progressFill.style.width = `${progressPercent}%`;
-});
+  });
 
-progressBar.addEventListener("click", (e) => {
+  progressBar.addEventListener("click", (e) => {
   const rect = progressBar.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   const width = rect.width;
   const clickRatio = clickX / width;
   audio.currentTime = clickRatio * audio.duration;
-});
+  });
 
-// New: show tooltip on hover over progress bar
-progressBar.addEventListener("mousemove", (e) => {
+  // New: show tooltip on hover over progress bar
+  progressBar.addEventListener("mousemove", (e) => {
   const rect = progressBar.getBoundingClientRect();
   const offsetX = e.clientX - rect.left;
   const width = rect.width;
@@ -137,17 +175,17 @@ progressBar.addEventListener("mousemove", (e) => {
   progressTooltip.style.left = `${offsetX}px`;
   progressTooltip.style.display = "block";
   progressTooltip.textContent = timeString;
-});
+  });
 
-progressBar.addEventListener("mouseleave", () => {
+  progressBar.addEventListener("mouseleave", () => {
   progressTooltip.style.display = "none";
-});
+  });
 
-function play(audioUrl, title, imageUrl, author) {
+  function play(audioUrl, title, imageUrl, author) {
   const titleElem = document.getElementById("ap-l-i-title");
   const imageElem = document.getElementById("ap-l-image");
   const authorElem = document.getElementById("ap-l-i-author");
-  
+
   titleElem.innerText = title;
   titleElem.parentElement.setAttribute('data-tooltip', title);
 
@@ -178,11 +216,11 @@ function play(audioUrl, title, imageUrl, author) {
     volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value;
     });
-}
+  }
 
-const volumeIcon = document.getElementById('volume-icon');
+  const volumeIcon = document.getElementById('volume-icon');
 
-function updateVolumeIcon(volume) {
+  function updateVolumeIcon(volume) {
     if (volume == 0) {
         volumeIcon.className = "fa-solid fa-volume-xmark";
     } else if (volume > 0 && volume <= 0.3) {
@@ -192,15 +230,17 @@ function updateVolumeIcon(volume) {
     } else {
         volumeIcon.className = "fa-solid fa-volume-high";
     }
-}
+  }
 
-// Run on slider input
-volumeSlider.addEventListener('input', () => {
+  // Run on slider input
+  volumeSlider.addEventListener('input', () => {
     audio.volume = volumeSlider.value;
     updateVolumeIcon(audio.volume);
-});
+  });
 
-// Run once at start
-updateVolumeIcon(audio.volume);
+  // Run once at start
+  updateVolumeIcon(audio.volume);
+
+  document.querySelector('.volume-control').classList.remove('hidden');
 
 }
