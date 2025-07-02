@@ -614,7 +614,17 @@ nav a:active {
 .volume-control i {
     font-size: 20px;
     width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
     cursor: pointer;
+}
+
+.volume-control i:hover{
+    background-color: rgba(165, 165, 165, 0.5);
 }
 
 #volume-slider {
