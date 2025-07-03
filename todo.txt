@@ -1,4 +1,4 @@
 1. Entdeckungsseite entwickeln
 2. "Im bau" Seite für Unterstützungsseite
 3. Sehen, ob die Profilfunktion entwickelt werden kann.
-4.
+X 4. Liedfunktion und Stil verbessern
