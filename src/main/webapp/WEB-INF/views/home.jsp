@@ -73,17 +73,13 @@
                 <div class="carousel-wrapper" id="cw-h">
                     <div class="songs-list">
                         <c:forEach var="song" items="${popularSongs}">
-                            <div class="song-item" id="si-h">
-                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
-                                <p>${song.title}</p>
-                                <button onclick="play(
+                            <div class="song-item" id="si-h" onclick="play(
                                     '/audio/${song.audioUrl}',
                                     '${song.jsSafeTitle}',
                                     '${song.imageUrl}',
-                                    '${song.jsSafeAuthor}'
-                                )">
-                                    ▶️ Play (${song.playCount} Aufrufe)
-                                </button>
+                                    '${song.jsSafeAuthor}')">
+                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
+                                <p>${song.title}</p>
                             </div>
                         </c:forEach>
                     </div>
@@ -99,17 +95,13 @@
                 <div class="carousel-wrapper" id="cw-r">
                     <div class="songs-list">
                         <c:forEach var="song" items="${randomSongs}">
-                            <div class="song-item" id="si-r">
-                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
-                                <p>${song.title}</p>
-                                <button onclick="play(
+                            <div class="song-item" id="si-r" onclick="play(
                                     '/audio/${song.audioUrl}',
                                     '${song.jsSafeTitle}',
                                     '${song.imageUrl}',
-                                    '${song.jsSafeAuthor}'
-                                )">
-                                    ▶️ Play (${song.playCount} Aufrufe)
-                                </button>
+                                    '${song.jsSafeAuthor}')">
+                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
+                                <p>${song.title}</p>
                             </div>
                         </c:forEach>
                     </div>
@@ -125,17 +117,13 @@
                 <div class="carousel-wrapper" id="cw-n">
                     <div class="songs-list">
                         <c:forEach var="song" items="${newSongs}">
-                            <div class="song-item" id="si-n">
-                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
-                                <p>${song.title}</p>
-                                <button onclick="play(
+                            <div class="song-item" id="si-n" onclick="play(
                                     '/audio/${song.audioUrl}',
                                     '${song.jsSafeTitle}',
                                     '${song.imageUrl}',
-                                    '${song.jsSafeAuthor}'
-                                )">
-                                    ▶️ Play (${song.playCount} Aufrufe)
-                                </button>
+                                    '${song.jsSafeAuthor}')">
+                                <img src="/pictures/${song.imageUrl}" alt="${song.title}">
+                                <p>${song.title}</p>
                             </div>
                         </c:forEach>
                     </div>
