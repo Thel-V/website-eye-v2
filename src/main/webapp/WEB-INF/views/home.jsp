@@ -46,11 +46,11 @@
                         <li><a href="/discover" id="nav-discover-button">Entdecken</a></li>
                     </div>
                     <div class="fields" id="nav-support-field">
-                        <div class="dots" id="nav-discover-dot"></div>
+                        <div class="dots" id="nav-support-dot"></div>
                         <li><a href="/support" id="nav-discover-button">Unterstützen</a></li>
                     </div>
                     <div class="fields" id="nav-contact-field">
-                        <div class="dots" id="nav-discover-dot"></div>
+                        <div class="dots" id="nav-contact-dot"></div>
                         <li><a href="/contact" id="nav-discover-button">Kontakt</a></li>
                     </div>
                     <div id="nav-profile-field">

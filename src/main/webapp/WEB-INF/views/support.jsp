@@ -10,13 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/pictures/logo.ico" type="image/x-icon">
 
-    <title>Hoerfrei/discover</title>
+    <title>Hoerfrei/support</title>
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/discover.css">
+    <link rel="stylesheet" href="/css/support.css">
     <link rel="stylesheet" href="/css/universal.css">
     <!-- JS -->
-    <script src="/js/discover.js" defer></script>
+    <script src="/js/support.js" defer></script>
 
 </head>
 
