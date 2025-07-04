@@ -33,4 +33,9 @@ public class PageController {
     public String contact(HttpSession session, Model model) {
         return "contact";
     }
+
+    @GetMapping("/underconstruct")
+    public String underconstruct(HttpSession session, Model model) {
+        return "underconstruct";
+    }
 }

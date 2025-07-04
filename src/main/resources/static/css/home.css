@@ -8,8 +8,8 @@
     background-color: #1db954;
 }
 
-#cf-top{
-    margin-top: 120px;
+#first-content{
+    margin-top: 40px;
 }
 
 .category-fields{
@@ -121,7 +121,6 @@
 
 .song-item p{
     text-align: center;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 170px;

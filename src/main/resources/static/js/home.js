@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Only update if scroll direction changed significantly
     if (Math.abs(currentScroll - lastScroll) > 5) {
-      header.classList.toggle('scrolled', currentScroll > 50);
+      header.classList.toggle('scrolled', currentScroll > 40);
       lastScroll = currentScroll;
     }
   }

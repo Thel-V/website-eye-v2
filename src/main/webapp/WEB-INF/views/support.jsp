@@ -51,7 +51,7 @@
                     </div>
                     <div class="fields" id="nav-contact-field">
                         <div class="dots" id="nav-contact-dot"></div>
-                        <li><a href="/contact" id="nav-contact-button">Kontakt</a></li>
+                        <li><a href="/underconstruct" id="nav-contact-button">Kontakt</a></li>
                     </div>
                     <div id="nav-profile-field">
                         <a href="/home"><i class="fa-solid fa-user"></i></a>

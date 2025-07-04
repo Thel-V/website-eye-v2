@@ -51,7 +51,7 @@
                     </div>
                     <div class="fields" id="nav-contact-field">
                         <div class="dots" id="nav-contact-dot"></div>
-                        <li><a href="/contact" id="nav-discover-button">Kontakt</a></li>
+                        <li><a href="/underconstruct" id="nav-discover-button">Kontakt</a></li>
                     </div>
                     <div id="nav-profile-field">
                         <a href="/home"><i class="fa-solid fa-user"></i></a>
@@ -63,8 +63,10 @@
         </nav>
     </header>
 
+     <div class="header-bump"></div>
+
     <main>
-        <div class="category-fields" id="cf-top"> <!-- Popular -->
+        <div class="category-fields" id="first-content"> <!-- Popular -->
             <div class="category-fields-background"></div>
             <div class="category-title">
                 <h1>🔥Heiße Lieder</h1>

@@ -13,10 +13,8 @@
     <title>Hoerfrei/discover</title>
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/discover.css">
+    <link rel="stylesheet" href="/css/underconstruct.css">
     <link rel="stylesheet" href="/css/universal.css">
-    <!-- JS -->
-    <script src="/js/discover.js" defer></script>
 
 </head>
 
@@ -63,9 +61,22 @@
         </nav>
     </header>
 
-    <main>
-        <div class="">
+    <div class="header-bump"></div>
 
+    <main>
+        <div class="center">
+            <div class="sign-field" id="header-bump-construct-fix">
+                <div class="sign">
+                    <div class="s-title">
+                        <h1>Diese Seite befindet sich im Bau</h1>
+                    </div>
+                    <div class="s-goback">
+                        <a href="/home">
+                            Zurück nach Hause
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
