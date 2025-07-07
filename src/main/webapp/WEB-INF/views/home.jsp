@@ -47,7 +47,7 @@
                     </div>
                     <div class="fields" id="nav-support-field">
                         <div class="dots" id="nav-support-dot"></div>
-                        <li><a href="/support" id="nav-discover-button">Unterstützen</a></li>
+                        <li><a href="/underconstruct" id="nav-discover-button">Unterstützen</a></li>
                     </div>
                     <div class="fields" id="nav-contact-field">
                         <div class="dots" id="nav-contact-dot"></div>

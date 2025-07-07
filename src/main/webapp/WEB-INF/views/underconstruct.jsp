@@ -45,7 +45,7 @@
                     </div>
                     <div class="fields" id="nav-support-field">
                         <div class="dots" id="nav-support-dot"></div>
-                        <li><a href="/support" id="nav-support-button">Unterstützen</a></li>
+                        <li><a href="/underconstruct" id="nav-support-button">Unterstützen</a></li>
                     </div>
                     <div class="fields" id="nav-contact-field">
                         <div class="dots" id="nav-contact-dot"></div>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="s-goback">
                         <a href="/home">
-                            Zurück nach Hause
+                            Zurück zum Start
                         </a>
                     </div>
                 </div>
