@@ -15,7 +15,7 @@ public class PlayController {
     @ResponseBody
     public String countPlay(@RequestParam String title, @RequestParam String author) {
         try {
-            PlayCounter.increment(title, author);
+            PlayCounter.counter(title, author);
             return "OK";
         } catch (IOException e) {
             return "ERROR";

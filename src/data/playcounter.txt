@@ -1,4 +1,8 @@
-Regina Caeli Prayer  |  nickpanek620=1
-Heavy Rain  |  nickpanek620=1
-Church Choir  |  NNChannel=5
-rebel.exe  |  nickpanek620=5
+Regina Caeli Prayer  |  nickpanek620 = 15
+Jazz Lounge  |  lkoliks = 1
+Heavy Rain  |  nickpanek620 = 1
+Church Choir  |  NNChannel = 7
+Whispers  |  AmarantaMusic = 4
+Inner Peace  |  Grand_Project = 3
+rebel.exe  |  nickpanek620 = 5
+Rain's Farewell  |  AmarantaMusic = 15

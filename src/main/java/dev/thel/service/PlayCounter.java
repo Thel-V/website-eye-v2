@@ -6,6 +6,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class PlayCounter {
     private static final Path COUNTER_FILE = Paths.get("src", "data", "playcounter.txt");
@@ -18,41 +21,35 @@ public class PlayCounter {
     private static void loadCounts() {
         try {
             if (Files.exists(COUNTER_FILE)) {
-                Files.lines(COUNTER_FILE)
-                        .forEach(line -> {
-                            // Handle both formats (with or without spaces)
-                            String normalizedLine = line.replace(" | ", "|");
-                            int equalSign = normalizedLine.indexOf('=');
-                            if (equalSign > 0) {
-                                String key = normalizedLine.substring(0, equalSign);
-                                String value = normalizedLine.substring(equalSign + 1);
-                                try {
-                                    counts.put(key, Integer.parseInt(value));
-                                } catch (NumberFormatException e) {
-                                    System.err.println("Invalid count format: " + key);
-                                }
-                            }
-                        });
+                Files.lines(COUNTER_FILE).forEach(line -> {
+                    String normalizedLine = line.replace(" | ", "|")
+                                                .replace(" = ", "=");
+                    int equalSign = normalizedLine.indexOf('=');
+                    if (equalSign > 0) {
+                        String info = normalizedLine.substring(0, equalSign);
+                        String value = normalizedLine.substring(equalSign + 1); // Value = Count
+                        try {
+                            counts.put(info, Integer.parseInt(value));
+                        }
+                        catch (NumberFormatException e) {}
+                    }
+                });
             }
-        } catch (IOException e) {
-            System.err.println("Error loading counts: " + e.getMessage());
         }
+        catch (IOException e) {}
     }
 
-    public static synchronized void increment(String title, String author) throws IOException {
+    public static synchronized void counter(String title, String author) throws IOException {
         String key = createKey(title, author);
         counts.put(key, getCount(title, author) + 1);
         saveAllCounts();
     }
 
     private static void saveAllCounts() throws IOException {
-        StringBuilder content = new StringBuilder();
-        counts.forEach((key, count) -> {
-            // Convert internal key to display format
-            String displayKey = key.replace("|", " | ");
-            content.append(displayKey).append("=").append(count).append("\n");
-        });
-        Files.write(COUNTER_FILE, content.toString().getBytes());
+        List<String> lines = counts.entrySet().stream()
+        .map(entry -> entry.getKey().replace("|", " | ") + " = " + entry.getValue())
+        .collect(Collectors.toList());
+        Files.write(COUNTER_FILE, lines);
     }
 
     public static int getCount(String title, String author) {
@@ -60,7 +57,6 @@ public class PlayCounter {
     }
 
     private static String createKey(String title, String author) {
-        // Normalize without spaces first (for internal matching)
         String normalizedKey = title.trim()
                     .replace("\n", " ")
                     .replace("=", "-")
@@ -69,7 +65,6 @@ public class PlayCounter {
                     .replace("\n", " ")
                     .replace("=", "-");
 
-        // Return formatted version with spaces for display/storage
         return normalizedKey.replace("|", " | ");
-    }
+    } //probs a name change
 }
