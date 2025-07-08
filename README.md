@@ -10,7 +10,7 @@ Ein Distubitionplatform von urheberrechtsfreie Lieder. Nichts mehr.
 
 Dies ist meine erste Website, die ich auch selbst hoste:
 
-Link: $\color{Red}\Huge{\textsf{Noch nicht verfügbar}}$
+Link: $\color{Red}{\textsf{Noch nicht verfügbar}}$
 
 
 
