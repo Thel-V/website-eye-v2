@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayCounter {
-    private static final Path COUNTER_FILE = Paths.get("C:\\Users\\ruder\\Desktop\\IHK Material\\Projekt\\Hoerfrei\\data\\playcounter.txt");
+    private static final Path COUNTER_FILE = Paths.get("src", "data", "playcounter.txt");
     private static final Map<String, Integer> counts = new HashMap<>();
 
     static {
