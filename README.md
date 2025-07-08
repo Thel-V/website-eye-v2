@@ -14,5 +14,6 @@ Link: $\color{Red}{\textsf{Noch nicht verfügbar}}$
 
 
 
-Von: [@Thel](https://www.github.com/Thel-V)
+Von: 
 
+$\color{Purple}{[@Thel](https://www.github.com/Thel-V)}}$
