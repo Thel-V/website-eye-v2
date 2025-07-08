@@ -1,3 +1,4 @@
 o Entdeckungsseite entwickeln
 o Sehen, ob die Profilfunktion entwickelt werden kann. (Vielleicht auch eine laufendes Login/Register?)
 o Unterstützungssesite entwickeln. Sollte eine einfache seite sein
+o Kontakt Seite - E-Mail verschicken?
