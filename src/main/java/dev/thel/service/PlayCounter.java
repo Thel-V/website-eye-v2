@@ -22,49 +22,45 @@ public class PlayCounter {
         try {
             if (Files.exists(COUNTER_FILE)) {
                 Files.lines(COUNTER_FILE).forEach(line -> {
-                    String normalizedLine = line.replace(" | ", "|")
-                                                .replace(" = ", "=");
-                    int equalSign = normalizedLine.indexOf('=');
-                    if (equalSign > 0) {
-                        String info = normalizedLine.substring(0, equalSign);
-                        String value = normalizedLine.substring(equalSign + 1); // Value = Count
+                    int equalsIndex = line.indexOf('=');
+                    int pipeIndex = line.indexOf('|');
+
+                    if (pipeIndex > 0 && equalsIndex > pipeIndex) {
+                        String key = line.substring(0, equalsIndex);
+                        String valueStr = line.substring(equalsIndex + 1);
+
                         try {
-                            counts.put(info, Integer.parseInt(value));
-                        }
-                        catch (NumberFormatException e) {}
+                            counts.put(key, Integer.parseInt(valueStr));
+                        } catch (NumberFormatException ignored) {}
                     }
                 });
             }
-        }
-        catch (IOException e) {}
+        } catch (IOException ignored) {}
     }
 
-    public static synchronized void counter(String title, String author) throws IOException {
-        String key = createKey(title, author);
-        counts.put(key, getCount(title, author) + 1);
-        saveAllCounts();
-    }
-
-    private static void saveAllCounts() throws IOException {
+    private static void saveCounts() throws IOException {
         List<String> lines = counts.entrySet().stream()
-        .map(entry -> entry.getKey().replace("|", " | ") + " = " + entry.getValue())
-        .collect(Collectors.toList());
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.toList());
         Files.write(COUNTER_FILE, lines);
     }
 
-    public static int getCount(String title, String author) {
-        return counts.getOrDefault(createKey(title, author), 0);
+    private static String lineCleaner(String artist, String song) {
+        String cleanedArtist = artist.trim().replaceAll("\\s+", "_").replaceAll("=", "-");
+        String cleanedSong = song.trim().replaceAll("\\s+", "_").replaceAll("=", "-");
+
+        return cleanedArtist + "|" + cleanedSong;
     }
 
-    private static String createKey(String title, String author) {
-        String normalizedKey = title.trim()
-                    .replace("\n", " ")
-                    .replace("=", "-")
-                + "|" +
-                author.trim()
-                    .replace("\n", " ")
-                    .replace("=", "-");
+    public static synchronized void counter(String artist, String song) throws IOException {
+        String key = lineCleaner(artist, song);
+        int currentCount = counts.getOrDefault(key, 0);
+        counts.put(key, currentCount + 1);
+        saveCounts();
+    }
 
-        return normalizedKey.replace("|", " | ");
-    } //probs a name change
+    // Get current count
+    public static int getCount(String artist, String song) {
+        return counts.getOrDefault(lineCleaner(artist, song), 0);
+    }
 }

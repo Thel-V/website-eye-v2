@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header scrolled">
         <div class="left">
             <div class="logo">
                 <a href="/home">
