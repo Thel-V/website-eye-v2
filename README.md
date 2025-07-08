@@ -6,7 +6,7 @@
 
 Ein Distubitionplatform von urheberrechtsfreie Lieder. Nichts mehr.
 
-!ACHTUNG! - Es ist ein Demo, keine eigentliche Seriöse Website; als beispiel ist die Unterstützungsseite keinerlei funktionsfähig, es ist nur für Schau.
+$\color{Yellow}{\textsf{!ACHTUNG!}}$ - Es ist ein Demo, keine eigentliche Seriöse Website; als beispiel ist die Unterstützungsseite keinerlei funktionsfähig, es ist nur für Schau.
 
 Dies ist meine erste Website, die ich auch selbst hoste:
 
@@ -14,6 +14,5 @@ Link: $\color{Red}{\textsf{Noch nicht verfügbar}}$
 
 
 
-Von: 
+Von: [@Thel](https://www.github.com/Thel-V)
 
-$\color{Purple}{[@Thel](https://www.github.com/Thel-V)}}$
