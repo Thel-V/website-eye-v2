@@ -10,7 +10,7 @@ function setupHeader() {
 
   function updateHeader() {
     const currentScroll = window.scrollY;
-    if (Math.abs(currentScroll - lastScroll) > 5) {
+    if (Math.abs(currentScroll - lastScroll) > -10) {
       header.classList.toggle('scrolled', currentScroll > 40);
       lastScroll = currentScroll;
     }

@@ -10,7 +10,7 @@ public class SongList {
 
     private static final List<Song> SONGS = new ArrayList<>();
 
-    static {
+    static { // https://pixabay.com/
         SONGS.add(new Song("Church Choir", "NNChannel","song-images/church-choir.png", "nnchanel-church-choir.mp3", LocalDate.of(2025, 5, 2)));
         SONGS.add(new Song("Regina Caeli Prayer", "nickpanek620", "song-images/regina-caeli-prayer.png", "nickpanek620-regina-caeli-prayer.mp3", LocalDate.of(2025, 5, 15)));
         SONGS.add(new Song("rebel.exe", "nickpanek620", "song-images/rebel-exe.png", "nickpanek620-rebel_exe.mp3", LocalDate.of(2025, 4, 17)));

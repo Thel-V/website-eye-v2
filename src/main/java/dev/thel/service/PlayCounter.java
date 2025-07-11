@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class PlayCounter {
@@ -59,7 +58,6 @@ public class PlayCounter {
         saveCounts();
     }
 
-    // Get current count
     public static int getCount(String artist, String song) {
         return counts.getOrDefault(lineCleaner(artist, song), 0);
     }
