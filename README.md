@@ -15,7 +15,7 @@ Von: [@Thel](https://www.github.com/Thel-V)
 ###
 ### Tutorial
 
-To deploy this project run
+So können Sie die Website lokal hosten:
 
 ```bash
   git clone https://github.com/Thel-V/website-eye-v2.git
