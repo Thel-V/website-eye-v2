@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PageController {
-
     @GetMapping("/")
     public String redirectToHome() {
         return "redirect:/home";

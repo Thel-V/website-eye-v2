@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  website-eye:
+    image: website-eye-v2
+    build: .
+    ports:
+      - "8081:8081"
+    volumes:
+      - "${USERPROFILE}/Documents/hoerfrei-data:/data"
+    environment:
+      - DOCKER_ENV=true
+    container_name: website-eye-v2
+
+# docker-compose up -d | Starting
+# docker-compose down | Stopping

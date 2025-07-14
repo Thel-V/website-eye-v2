@@ -10,7 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlayCounter {
-    private static final Path COUNTER_FILE = Paths.get("src", "data", "playcounter.txt");
+    public static final Path COUNTER_FILE;
+
+    static {
+        if (System.getenv("DOCKER_ENV") != null) {
+            COUNTER_FILE = Paths.get("/data", "playcounter.txt");
+        } else {
+            COUNTER_FILE = Paths.get(System.getProperty("user.home"), "Documents", "heorfrei-data", "playcounter.txt");
+        } //C:\Users\____\Documents\hoerfrei-data/playcounter.txt
+    }
+
     private static final Map<String, Integer> counts = new HashMap<>();
 
     static {
@@ -38,9 +47,13 @@ public class PlayCounter {
     }
 
     private static void saveCounts() throws IOException {
+        // Create folder if it doesn't exist
+        Files.createDirectories(COUNTER_FILE.getParent());
+
         List<String> lines = counts.entrySet().stream()
                 .map(entry -> entry.getKey() + "=" + entry.getValue())
                 .collect(Collectors.toList());
+
         Files.write(COUNTER_FILE, lines);
     }
 

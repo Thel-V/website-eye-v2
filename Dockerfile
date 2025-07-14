@@ -8,6 +8,7 @@ RUN mvn clean package -DskipTests
 # --- RUNTIME STAGE ---
 FROM eclipse-temurin:17-jre-focal
 WORKDIR /app
-COPY --from=build /app/target/website-eye-v2.jar app.jar
+COPY --from=build /app/target/website-eye-v2.war app.war
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.war"]
+ENV DOCKER_ENV=true
