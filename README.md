@@ -11,5 +11,22 @@ Dies ist meine erste Website, die ich auch selbst hoste:
 
 Link: $\color{Red}{\textsf{Nicht verfügbar}}$
 
-Von: [@Thel](https://www.github.com/Thel-V)
+Von: [@Thel](https://www.github.com/Thel-V) 
+###
+### Tutorial
 
+To deploy this project run
+
+```bash
+  git clone https://github.com/Thel-V/website-eye-v2.git
+```
+
+```bash
+  cd zu-den-ordner
+```
+
+```bash
+  docker-compose run -d
+```
+
+$\color{Yellow}{\textsf{Hinweis:}}$ - Die Anwendung kreiert eine datei im Ordner: "Users/___/Dokumente/hoerfrei-data/playcounter.txt
