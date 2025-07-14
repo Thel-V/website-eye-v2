@@ -12,8 +12,8 @@ Dies ist meine erste Website, die ich auch selbst hoste:
 Link: $\color{Red}{\textsf{Nicht verfügbar}}$
 
 Von: [@Thel](https://www.github.com/Thel-V) 
-###
-### Tutorial
+##
+## Tutorial
 
 So können Sie die Website lokal hosten:
 
@@ -37,4 +37,4 @@ Um es zu stoppen:
   docker-compose down
 ```
 
-$\color{Yellow}{\textsf{Hinweis:}}$ - Die Anwendung kreiert eine datei im Ordner: "Users/___/Dokumente/hoerfrei-data/playcounter.txt
+$\color{Yellow}{\textsf{Hinweis:}}$ - Die Anwendung kreiert eine datei im Ordner: "Users/____/Dokumente/hoerfrei-data/playcounter.txt"
