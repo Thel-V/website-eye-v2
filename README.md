@@ -22,11 +22,19 @@ So können Sie die Website lokal hosten:
 ```
 
 ```bash
-  cd zu-den-ordner
+  cd website-eye-v2
 ```
 
 ```bash
-  docker-compose run -d
+  docker-compose up -d
+```
+
+Jetzt im Browser das hier eingeben: localhost:8081
+
+Um es zu stoppen:
+
+```bash
+  docker-compose down
 ```
 
 $\color{Yellow}{\textsf{Hinweis:}}$ - Die Anwendung kreiert eine datei im Ordner: "Users/___/Dokumente/hoerfrei-data/playcounter.txt
